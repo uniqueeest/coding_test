@@ -9,6 +9,7 @@ function solution(id_list, report, k) {
         list[id] = [0, []];
         return list;
     }, {});
+    console.log(userList)
     
     
     for (let id of reports) {
@@ -17,12 +18,14 @@ function solution(id_list, report, k) {
         userList[ID][0]++               //신고된 횟수
         
     }
+
     
     //K이상 신고횟수
-    const ban = id_list.filter((a) => userList[a][0] >= k);
+    const stop = id_list.filter((a) => userList[a][0] >= k);
+    console.log(stop);
     const newMap = id_list.map((a) => {
         return userList[a][1].filter((a) => {
-            return ban.includes(a);
+            return stop.includes(a);
         }).length;
     })
     
